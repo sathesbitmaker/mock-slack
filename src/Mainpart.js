@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Mainpart = () => {
+const Mainpart = (props) => {
   return(
     <div>
-    <p> Beginning </p>
+      <div>
+        {props.postBody}
+      </div>
     </div>
   );
 }
