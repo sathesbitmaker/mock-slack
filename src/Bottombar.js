@@ -9,6 +9,7 @@ class Bottombar extends Component {
 
   this.state = {
     newPostBody: '',
+    differentPostBody: '',
   };
 }
 
@@ -23,7 +24,6 @@ class Bottombar extends Component {
     this.props.addPost(this.state.nameTime)
     this.props.addPost(this.state.newPostBody);
     this.setState({
-      hours: 'ok',
       newPostBody: ''
     });
   }

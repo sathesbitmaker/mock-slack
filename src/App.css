@@ -35,3 +35,7 @@
 #starPicture {
   height: 10px;
 }
+
+.sidebarWhole {
+  float:left;
+}
