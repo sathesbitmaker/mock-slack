@@ -31,3 +31,7 @@
     transform: rotate(360deg);
   }
 }
+
+#starPicture {
+  height: 10px;
+}

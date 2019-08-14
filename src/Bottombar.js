@@ -14,14 +14,16 @@ class Bottombar extends Component {
 
   handlePostEditorInputChange(ev) {
     this.setState({
+      nameTime: ['Serge Ibaka     ', new Date().getHours(), ':', new Date().getMinutes()],
       newPostBody: ev.target.value
     });
   }
 
   createPost() {
+    this.props.addPost(this.state.nameTime)
     this.props.addPost(this.state.newPostBody);
     this.setState({
-      name: 'Serge Ibaka',
+      hours: 'ok',
       newPostBody: ''
     });
   }

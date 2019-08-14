@@ -5,7 +5,7 @@ const Topbar = () => {
   return(
     <div>
     <h1> #announcments </h1>
-    <img src={Star} alt="Star" />;
+    <img id="starPicture" src={Star} alt="Star" />;
     <h1> Listen to all important announcments here! </h1>
     </div>
   );
