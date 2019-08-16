@@ -29,6 +29,7 @@ render() {
   return (
     <div className="App">
       <Sidebar/>
+      <div>
       {
         this.state.posts.map(postBody => {
         return (
@@ -37,6 +38,7 @@ render() {
         })
 
       }
+    </div>
       <Bottombar addPost={this.addPost}/>
     </div>
   );
