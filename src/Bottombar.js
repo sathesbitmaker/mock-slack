@@ -8,9 +8,7 @@ class Bottombar extends Component {
   this.createPost = this.createPost.bind(this)
 
   this.state = {
-    announcements: '',
-    forumPage: '',
-    differentPostBody: '',
+    newPostBody: '',
   };
 }
 
@@ -21,15 +19,15 @@ class Bottombar extends Component {
   handlePostEditorInputChange(ev) {
     this.setState({
       nameTime: ['Serge Ibaka     ', new Date().getHours(), ':', new Date().getMinutes()],
-      announcements: ev.target.value
+      newPostBody: ev.target.value
     });
   }
 
   createPost() {
     this.props.addPost(this.state.nameTime)
-    this.props.addPost(this.state.announcements);
+    this.props.addPost(this.state.newPostBody);
     this.setState({
-      announcements: ''
+      newPostBody: ''
     });
   }
 
@@ -48,14 +46,14 @@ class Bottombar extends Component {
           numbers.map(i => {
           return (
             <div>
-            <h4 onClick={this.changeForum} className={listnames[i]}>{listnames[i]}</h4>
+            <h4 onClick={this.changeForum}>{listnames[i]}</h4>
           </div>
           )
           })}
 
       <h1> Direct Messages </h1>
     </div>
-    <textarea className="message-box" value={this.state.announcements} onChange={this.handlePostEditorInputChange}/>
+    <textarea className="message-box" value={this.state.newPostBody}onChange={this.handlePostEditorInputChange}/>
     <button className="post-it" onClick={this.createPost}>Post</button>
     </div>
   );

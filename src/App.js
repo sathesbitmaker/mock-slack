@@ -13,13 +13,13 @@ class App extends Component {
 
 
     this.state = {
-      posts: [],
+      announcementsposts: [],
     }
   }
 
 addPost(newPostBody) {
   const newState = Object.assign({}, this.state);
-  newState.posts.push(newPostBody);
+  newState.announcementsposts.push(newPostBody);
   this.setState(newState);
 }
 
@@ -30,7 +30,7 @@ render() {
     <div className="App">
       <div>
       {
-        this.state.posts.map(postBody => {
+        this.state.announcementsposts.map(postBody => {
         return (
           <Mainpart postBody={postBody}/>
         )
