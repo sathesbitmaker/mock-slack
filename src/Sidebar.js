@@ -1,6 +1,11 @@
 import React from 'react';
+import Bottombar from './Bottombar.js'
 
 const Sidebar = () => {
+
+  function changeForum() {
+    console.log('ok')
+  }
 
   const numbers = [0,1,2,3,4,5,6,7]
   const listnames = ['#announcements','#careers','#coding','#contact-staff','#design','#digital-marketing'
@@ -14,7 +19,9 @@ const Sidebar = () => {
       {
         numbers.map(i => {
         return (
-          <h4>{listnames[i]}</h4>
+          <div>
+          <h4 onClick={changeForum}>{listnames[i]}</h4>
+        </div>
         )
         })}
 

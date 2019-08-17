@@ -28,7 +28,6 @@ addPost(newPostBody) {
 render() {
   return (
     <div className="App">
-      <Sidebar/>
       <div>
       {
         this.state.posts.map(postBody => {
