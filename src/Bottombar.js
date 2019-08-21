@@ -6,6 +6,7 @@ class Bottombar extends Component {
 
   this.handlePostEditorInputChange = this.handlePostEditorInputChange.bind(this);
   this.createPost = this.createPost.bind(this)
+  this.displayPosts = this.displayPosts.bind(this)
 
   this.state = {
     newPostBody: '',
@@ -31,10 +32,18 @@ class Bottombar extends Component {
     });
   }
 
+  displayPosts({currentTarget}) {
+    console.log(currentTarget.id)
+  }
+
+  displayAnnouncements = (props) => {
+  console.log('ok')
+}
+
   render() {
     const numbers = [0,1,2,3,4,5,6,7]
-    const listnames = ['#announcements','#careers','#coding','#contact-staff','#design','#digital-marketing'
-    ,'#events','#random']
+    const listnames = ['announcements','careers','coding','contact-staff','design','digital-marketing'
+    ,'events','random']
   return(
     <div>
       <div className="sidebarWhole">
@@ -46,14 +55,14 @@ class Bottombar extends Component {
           numbers.map(i => {
           return (
             <div>
-            <h4 onClick={this.changeForum}>{listnames[i]}</h4>
+            <h4 onClick={this.changeForum} id={listnames[i]} onClick={this.displayPosts}>#{listnames[i]}</h4>
           </div>
           )
           })}
 
       <h1> Direct Messages </h1>
     </div>
-    <textarea className="message-box" value={this.state.newPostBody}onChange={this.handlePostEditorInputChange}/>
+    <textarea className="message-box" value={this.state.post} onChange={this.handlePostEditorInputChange}/>
     <button className="post-it" onClick={this.createPost}>Post</button>
     </div>
   );

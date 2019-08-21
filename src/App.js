@@ -28,7 +28,7 @@ addPost(newPostBody) {
 render() {
   return (
     <div className="App">
-      <div>
+      <div id="announcmentsPosts">
       {
         this.state.announcementsposts.map(postBody => {
         return (
