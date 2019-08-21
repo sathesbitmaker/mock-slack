@@ -4,31 +4,45 @@ class Bottombar extends Component {
   constructor(props) {
     super(props);
 
-  this.handlePostEditorInputChange = this.handlePostEditorInputChange.bind(this);
-  this.createPost = this.createPost.bind(this)
+  this.handlePostEditorInputChangeAnnouncements = this.handlePostEditorInputChangeAnnouncements.bind(this);
+  this.handlePostEditorInputChangeCareers = this.handlePostEditorInputChangeCareers.bind(this);
+  this.createAnnouncementsPost = this.createAnnouncementsPost.bind(this)
+  this.createCareersPost = this.createCareersPost.bind(this)
   this.displayPosts = this.displayPosts.bind(this)
 
   this.state = {
-    newPostBody: '',
+    announcementsBody: '',
+    careersBody: '',
   };
 }
 
-  changeForum() {
-    console.log('ok')
-  }
-
-  handlePostEditorInputChange(ev) {
+  handlePostEditorInputChangeAnnouncements(ev) {
     this.setState({
       nameTime: ['Serge Ibaka     ', new Date().getHours(), ':', new Date().getMinutes()],
-      newPostBody: ev.target.value
+      announcementsBody: ev.target.value,
     });
   }
 
-  createPost() {
-    this.props.addPost(this.state.nameTime)
-    this.props.addPost(this.state.newPostBody);
+  handlePostEditorInputChangeCareers(ev) {
     this.setState({
-      newPostBody: ''
+      nameTime: ['Serge Ibaka     ', new Date().getHours(), ':', new Date().getMinutes()],
+      careersBody: ev.target.value,
+    });
+  }
+
+  createAnnouncementsPost() {
+    this.props.addPostAnnouncements(this.state.nameTime)
+    this.props.addPostAnnouncements(this.state.announcementsBody);
+    this.setState({
+      announcementsBody: ''
+    });
+  }
+
+  createCareersPost() {
+    this.props.addPostCareers(this.state.nameTime)
+    this.props.addPostCareers(this.state.careersBody)
+    this.setState({
+      careersBody: ''
     });
   }
 
@@ -36,9 +50,6 @@ class Bottombar extends Component {
     console.log(currentTarget.id)
   }
 
-  displayAnnouncements = (props) => {
-  console.log('ok')
-}
 
   render() {
     const numbers = [0,1,2,3,4,5,6,7]
@@ -62,8 +73,10 @@ class Bottombar extends Component {
 
       <h1> Direct Messages </h1>
     </div>
-    <textarea className="message-box" value={this.state.post} onChange={this.handlePostEditorInputChange}/>
-    <button className="post-it" onClick={this.createPost}>Post</button>
+    <textarea className="message-box" value={this.state.post} onChange={this.handlePostEditorInputChangeAnnouncements}/>
+    <button className="post-it" onClick={this.createAnnouncementsPost}>Post</button>
+      <textarea className="message-box" value={this.state.post} onChange={this.handlePostEditorInputChangeCareers}/>
+      <button className="post-it" onClick={this.createCareersPost}>Post</button>
     </div>
   );
 }

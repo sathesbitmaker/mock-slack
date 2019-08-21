@@ -4,7 +4,8 @@ const Mainpart = (props) => {
   return(
     <div>
       <div>
-        {props.postBody}
+        {props.postAnnouncementsBody}
+        {props.postCareersBody}
       </div>
     </div>
   );

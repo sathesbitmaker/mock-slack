@@ -9,18 +9,25 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.addPost = this.addPost.bind(this);
-
+    this.addPostAnnouncements = this.addPostAnnouncements.bind(this);
+    this.addPostCareers = this.addPostCareers.bind(this);
 
     this.state = {
       announcementsposts: [],
+      careersposts: [],
     }
   }
 
-addPost(newPostBody) {
-  const newState = Object.assign({}, this.state);
-  newState.announcementsposts.push(newPostBody);
-  this.setState(newState);
+addPostAnnouncements(announcementsBody) {
+  const newAnnouncementsState = Object.assign({}, this.state);
+  newAnnouncementsState.announcementsposts.push(announcementsBody);
+  this.setState(newAnnouncementsState);
+}
+
+addPostCareers(careersBody) {
+  const newCareersState = Object.assign({}, this.state);
+  newCareersState.careersposts.push(careersBody);
+  this.setState(newCareersState);
 }
 
 
@@ -30,15 +37,26 @@ render() {
     <div className="App">
       <div id="announcmentsPosts">
       {
-        this.state.announcementsposts.map(postBody => {
+        this.state.announcementsposts.map(postAnnouncementsBody => {
         return (
-          <Mainpart postBody={postBody}/>
+          <Mainpart postAnnouncementsBody={postAnnouncementsBody}/>
         )
         })
 
       }
+      {
+        this.state.careersposts.map(postCareersBody => {
+        return (
+          <Mainpart postCareersBody={postCareersBody}/>
+        )
+        })
+
+      }
+
     </div>
-      <Bottombar addPost={this.addPost}/>
+      <Bottombar addPostAnnouncements={this.addPostAnnouncements}
+                 addPostCareers={this.addPostCareers}
+         />
     </div>
   );
 }
