@@ -6,12 +6,13 @@ class Bottombar extends Component {
 
   this.handlePostEditorInputChangeAnnouncements = this.handlePostEditorInputChangeAnnouncements.bind(this);
   this.handlePostEditorInputChangeCareers = this.handlePostEditorInputChangeCareers.bind(this);
-  this.createAnnouncementsPost = this.createAnnouncementsPost.bind(this)
-  this.createCareersPost = this.createCareersPost.bind(this)
-  this.displayPosts = this.displayPosts.bind(this)
+  this.createAnnouncementsPost = this.createAnnouncementsPost.bind(this);
+  this.createCareersPost = this.createCareersPost.bind(this);
+  this.announcementsDisplay = this.announcementsDisplay.bind(this);
 
   this.state = {
     announcementsBody: '',
+    announcementsShow: false,
     careersBody: '',
   };
 }
@@ -46,33 +47,29 @@ class Bottombar extends Component {
     });
   }
 
-  displayPosts({currentTarget}) {
-    console.log(currentTarget.id)
+  announcementsDisplay() {
+    this.setState({
+      announcementsShow: true
+    });
   }
 
 
   render() {
-    const numbers = [0,1,2,3,4,5,6,7]
-    const listnames = ['announcements','careers','coding','contact-staff','design','digital-marketing'
-    ,'events','random']
   return(
     <div>
       <div className="sidebarWhole">
-      <h1> Mock Slack </h1>
-      <h1> Threads </h1>
-      <h1> Channels </h1>
+        <h1> Mock Slack </h1>
+        <h1> Threads </h1>
+        <h1> Channels </h1>
 
-        {
-          numbers.map(i => {
-          return (
             <div>
-            <h4 onClick={this.changeForum} id={listnames[i]} onClick={this.displayPosts}>#{listnames[i]}</h4>
-          </div>
-          )
-          })}
+              <h4 id="announcementsSide" onClick={this.announcementsDisplay}>#announcements</h4>
+              <h4 id="careersSide">#careers</h4>
+              <h4 id="codingSide">#coding</h4>
+            </div>
 
-      <h1> Direct Messages </h1>
-    </div>
+          <h1> Direct Messages </h1>
+      </div>
     <textarea className="message-box" value={this.state.post} onChange={this.handlePostEditorInputChangeAnnouncements}/>
     <button className="post-it" onClick={this.createAnnouncementsPost}>Post</button>
       <textarea className="message-box" value={this.state.post} onChange={this.handlePostEditorInputChangeCareers}/>

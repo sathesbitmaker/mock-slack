@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Topbar from './Topbar.js';
-import Sidebar from './Sidebar.js';
 import Bottombar from './Bottombar.js'
 import Mainpart from './Mainpart.js'
 import './App.css';

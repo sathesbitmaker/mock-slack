@@ -1,5 +1,4 @@
 import React from 'react';
-import Bottombar from './Bottombar.js'
 
 const Sidebar = () => {
 

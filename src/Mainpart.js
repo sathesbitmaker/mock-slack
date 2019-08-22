@@ -2,10 +2,12 @@ import React from 'react';
 
 const Mainpart = (props) => {
   return(
-    <div>
-      <div>
+    <div id="allofit">
+      <div id="announcementsMain">
         {props.postAnnouncementsBody}
-        {props.postCareersBody}
+      </div>
+      <div id="careersMain">
+      {props.postCareersBody}
       </div>
     </div>
   );

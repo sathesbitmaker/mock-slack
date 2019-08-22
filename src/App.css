@@ -39,3 +39,16 @@
 .sidebarWhole {
   float:left;
 }
+
+#allofit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#announcementsMain {
+
+}
+
+#careersMain {
+
+}
