@@ -28,8 +28,6 @@ addPostCareers(careersBody) {
   this.setState(newCareersState);
 }
 
-
-
 render() {
   return (
     <div className="App">
