@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 
+
+
 class Mainpart extends Component {
 
-  
+
   render () {
     var props = this.props;
     return(

@@ -9,11 +9,13 @@ class Bottombar extends Component {
   this.createAnnouncementsPost = this.createAnnouncementsPost.bind(this);
   this.createCareersPost = this.createCareersPost.bind(this);
   this.announcementsDisplay = this.announcementsDisplay.bind(this);
+  this.ok = this.ok.bind(this);
 
   this.state = {
     announcementsBody: '',
     announcementsShow: false,
     careersBody: '',
+    careersID: 'careers',
   };
 }
 
@@ -35,7 +37,8 @@ class Bottombar extends Component {
     this.props.addPostAnnouncements(this.state.nameTime)
     this.props.addPostAnnouncements(this.state.announcementsBody);
     this.setState({
-      announcementsBody: ''
+      announcementsBody: '',
+      backgroundColor: 'yellow'
     });
   }
 
@@ -53,6 +56,12 @@ class Bottombar extends Component {
     });
   }
 
+  ok() {
+    var ok = this.id
+    console.log(ok)
+
+  }
+
 
   render() {
   return(
@@ -64,7 +73,7 @@ class Bottombar extends Component {
 
             <div>
               <h4 id="announcementsSide" onClick={this.announcementsDisplay}>#announcements</h4>
-              <h4 id="careersSide">#careers</h4>
+              <h4  id={this.state.careersID}  onClick={this.ok}>#careers</h4>
               <h4 id="codingSide">#coding</h4>
             </div>
 
