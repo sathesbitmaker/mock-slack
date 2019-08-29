@@ -2,6 +2,21 @@ import React, { Component } from 'react';
 import Bottombar from './Bottombar.js'
 import Mainpart from './Mainpart.js'
 import './App.css';
+import Modal from "./Modal";
+import useModal from './useModal';
+
+const ModalButton = () => {
+  const {isShowing, toggle} = useModal();
+  return (
+    <div className="App">
+      <button className="button-default" onClick={toggle}>Show Modal</button>
+      <Modal
+        isShowing={isShowing}
+        hide={toggle}
+      />
+    </div>
+  );
+};
 
 class App extends Component {
   constructor(props) {
@@ -53,9 +68,10 @@ render() {
       <Bottombar addPostAnnouncements={this.addPostAnnouncements}
                  addPostCareers={this.addPostCareers}
          />
+       <ModalButton />
     </div>
   );
 }
-
 }
+
 export default App;
